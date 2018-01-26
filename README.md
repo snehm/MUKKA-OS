@@ -7,8 +7,7 @@ Operating system implementation for x86 architecture
 <img src="media/powerOn.png" width="689" height="585" />
 
 **POST** is a firmware software that perform diagonistic on computer
-components, for example if enough power supply is present.
-
+components, for example if enough power supply is present.  
 Its responsibility includes loading BIOS at the end of physical memory,
 a jump instruction is placed at physical memory 0x0 to BIOS routine.
 
@@ -16,16 +15,15 @@ Control is transffered to **BIOS**, whoes major responsibility is to
 load boot sector of boot drive in memory at location 0x7c00 and pass
 control to 0x7c00
 
-**Boot Loader I** loaded at 0x7c00 by BIOS is limited of size of 512
+**Boot Loader I** loaded at 0x7c00 by BIOS is limited to size 512
 bytes. Due to its size constraint its major task is to find and load
 second stage boot loader from boot drive to memory and transfer control
 to second stage boot loader using BIOS interrupts, we will start our
-operating system implemetation from this stage, Boot Loader I :)
+operating system implementation from this stage, Boot Loader I :)
 
-**Boot Loader II** loaded at memory location 0x500 (becouse we choosed
+**Boot Loader II** loaded at memory location 0x500 (because we choosed
 to load at this location), major responsibility is to enable Address
-line 20, install GDT, install IDT, load kernel in memory,
-
+line 20, install GDT, install IDT, load kernel in memory,  
 switch to protected mode and transfer control to our operating system
 kernel.
 
@@ -80,11 +78,11 @@ virtual floppy.
 
 + Print a messege on screen.  
 + load Stage two boot loader  
-+ load root directory at (0x7c00 + 0x0200)  
-+ search stage two boot loader in root directory  
-+ save 1<sup>st</sup> cluster of stage two.  
-+ load FAT at (0x7c00 + 0x0200)  
-+ load clusters from FAT table starting from save cluster at 0x500  
+&nbsp;&nbsp;&nbsp;&nbsp;+ load root directory at (0x7c00 + 0x0200)  
+&nbsp;&nbsp;&nbsp;&nbsp;+ search stage two boot loader in root directory  
+&nbsp;&nbsp;&nbsp;&nbsp;+ save 1<sup>st</sup> cluster of stage two.  
+&nbsp;&nbsp;&nbsp;&nbsp;+ load FAT at (0x7c00 + 0x0200)  
+&nbsp;&nbsp;&nbsp;&nbsp;+ load clusters from FAT table starting from save cluster at 0x500  
 + Jump to stage two  
 
 ### Boot loader stage one implemetation prerequesite knowledge
@@ -175,13 +173,15 @@ CF = set if failure, cleared if success
 
 ## BOOTLOADER STAGE TWO
 
-*+ Print loading messege*  
-*+ Find and load kernel at 0x30000 using bios interrupts as in boot loader1*  
-*+ Install default GDT*  
-*+ Enable A20 using output port of keyboard controller*  
-*+ Switch to protected mode*  
-*+ Copy kernel image at 0x100000*  
-*+ Jump to kernel*  
+### Tasks of stage two boot loader
+
++ Print loading messege   
++ Find and load kernel at 0x30000 using bios interrupts as in boot loader1  
++ Install default GDT  
++ Enable A20 using output port of keyboard controller  
++ Switch to protected mode  
++ Copy kernel image at 0x100000  
++ Jump to kernel  
 
 ### Boot loader stage one implemetation prerequesite knowledge**
 
