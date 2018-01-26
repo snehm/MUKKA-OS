@@ -1,5 +1,5 @@
 #ifndef _STDINT_H
-#define _SRDINT_H
+#define _STDINT_H
 
 typedef signed char           int8_t;
 typedef unsigned char         uint8_t;
