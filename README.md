@@ -78,14 +78,14 @@ virtual floppy.
 
 ### Tasks of stage one boot loader
 
-+ Print a messege on screen.
-+ load Stage two boot loader
-+ load root directory at (0x7c00 + 0x0200)
-+ search stage two boot loader in root directory
-+ save 1<sup>st</sup> cluster of stage two.
-+ load FAT at (0x7c00 + 0x0200)
-+ load clusters from FAT table starting from save cluster at 0x500
-+ Jump to stage two
++ Print a messege on screen.  
++ load Stage two boot loader  
++ load root directory at (0x7c00 + 0x0200)  
++ search stage two boot loader in root directory  
++ save 1<sup>st</sup> cluster of stage two.  
++ load FAT at (0x7c00 + 0x0200)  
++ load clusters from FAT table starting from save cluster at 0x500  
++ Jump to stage two  
 
 ### Boot loader stage one implemetation prerequesite knowledge
 
@@ -100,12 +100,12 @@ other drivers know about disk stucture
 
 #### 2) FAT is linked list structure, each cluster entry( 12 bits each) stores value of next cluster
 
-Value marks free cluster : 0x00
-Value marks Reserved cluster : 0x01
-This cluster is in use--the value represents next cluster : 0x002 through 0xFEF
-Reserved values : 0xFF0 through 0xFF6
-Value marks bad clusters : 0xFF7
-Value marks this cluster as the last in the file : 0xFF8 through 0xFFF
+Value marks free cluster : 0x00  
+Value marks Reserved cluster : 0x01  
+This cluster is in use--the value represents next cluster : 0x002 through 0xFEF  
+Reserved values : 0xFF0 through 0xFF6  
+Value marks bad clusters : 0xFF7  
+Value marks this cluster as the last in the file : 0xFF8 through 0xFFF  
 
 #### 3) ROOT directory structure
 
@@ -141,53 +141,53 @@ Value marks this cluster as the last in the file : 0xFF8 through 0xFFF
 
 #### 1) Print messege
 
-we will use BIOS interrupt 0x10 – video teletyping output
-AH = 0x0E
-AL = character to write
-BH = Page number (should be zero)
-BL = Foreground color (graphic mode only)
+we will use BIOS interrupt 0x10 – video teletyping output  
+AH = 0x0E  
+AL = character to write  
+BH = Page number (should be zero)  
+BL = Foreground color (graphic mode only)  
 
 #### 2) load Stage two boot loader
 
 we will use BIOS **interuppt 0x13** – reading sectors
 
-AH = 0x02
-AL = no of sectors to read
-CH = low 8 bits of cylinder number
-CL = sector number
-DH = Head Number
-DL = drive number
-ES:BX = buffer to read to
+AH = 0x02  
+AL = no of sectors to read  
+CH = low 8 bits of cylinder number  
+CL = sector number  
+DH = Head Number  
+DL = drive number  
+ES:BX = buffer to read to  
 
-returns:
-AH = status code
-AL = number of sectors read
-CF = set if failure, cleared if success
+returns:  
+AH = status code  
+AL = number of sectors read  
+CF = set if failure, cleared if success  
 
 we will also use BIOS **interrupt 0x13** to reset floppy disk
 
-AH = 0x0
-DL = drive to reset
+AH = 0x0  
+DL = drive to reset  
 
-returns
-AH = status code
-CF = set if failure, cleared if success
+returns  
+AH = status code  
+CF = set if failure, cleared if success  
 
 ## BOOTLOADER STAGE TWO
 
-*+ Print loading messege*
-*+ Find and load kernel at 0x30000 using bios interrupts as in boot loader1*
-*+ Install default GDT*
-*+ Enable A20 using output port of keyboard controller*
-*+ Switch to protected mode*
-*+ Copy kernel image at 0x100000*
-*+ Jump to kernel*
+*+ Print loading messege*  
+*+ Find and load kernel at 0x30000 using bios interrupts as in boot loader1*  
+*+ Install default GDT*  
+*+ Enable A20 using output port of keyboard controller*  
+*+ Switch to protected mode*  
+*+ Copy kernel image at 0x100000*  
+*+ Jump to kernel*  
 
 ### Boot loader stage one implemetation prerequesite knowledge**
 
 #### 1) Rings of Assembly
 
-Ring 0, Ring 1, Ring 2, Ring 3.The smaller the ring number, the more
+Ring 0, Ring 1, Ring 2, Ring 3.The smaller the ring number, the more  
 control (and less level of protection), the software has.
 
 #### 2) Real mode V/S Protected mode
