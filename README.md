@@ -4,7 +4,7 @@ Operating system implementation for x86 architecture
 
 ## WHEN YOU PRESS POWER BUTTON?
 
-<img src="media/powerButton.jpeg" width="256" height="575" />
+<img src="media/powerOn.png" width="689" height="585" />
 
 **POST** is a firmware software that perform diagonistic on computer
 components, for example if enough power supply is present.
@@ -43,36 +43,36 @@ Operating system.
 #### 2) Bochs configuration file (bochsrc.txt):
 
 *megs: 32*
-*romimage: file="/usr/share/bochs/BIOS-bochs-latest"*
-*vgaromimage: file ="/usr/share/bochs/VGABIOS-lgpl-latest"*
-*floppya: image=myfloppy.img, status=inserted*
-*boot: floppy*
-*display\_library: x, options="gui\_debug"*
+*romimage: file="/usr/share/bochs/BIOS-bochs-latest"*  
+*vgaromimage: file ="/usr/share/bochs/VGABIOS-lgpl-latest"*   
+*floppya: image=myfloppy.img, status=inserted*  
+*boot: floppy*    
+*display\_library: x, options="gui\_debug"*  
 
 #### 3) Bochs usage:
 
-*run : bochs -f bochsrc.txt*
-*break-point (debugger) : b &lt;memory location&gt;*
-*continue (debugger) : c*
+*run : bochs -f bochsrc.txt*  
+*break-point (debugger) : b &lt;memory location&gt;*  
+*continue (debugger) : c*  
 
 ### Install script
 
 This will be used to create, mount virtual floppy and copy bootloader in
 bootsector.
 
-*sudo dd if=/dev/zero of=myfloppy.img bs=512 count=2880*
-*sudo losetup /dev/loop0 myfloppy.img*
-*sudo mkdosfs -F 12 /dev/loop0*
-*sudo mount /dev/loop0 myfloppy -t msdos -o "fat=12"*
-*sudo dd if=LOADER.SYS of=/dev/loop0*
-*sudo cp KRNLDR.SYS myfloppy*
-*sudo umount myfloppy*
-*sudo losetup -d /dev/loop0*
+*sudo dd if=/dev/zero of=myfloppy.img bs=512 count=2880*  
+*sudo losetup /dev/loop0 myfloppy.img*  
+*sudo mkdosfs -F 12 /dev/loop0*  
+*sudo mount /dev/loop0 myfloppy -t msdos -o "fat=12"*  
+*sudo dd if=LOADER.SYS of=/dev/loop0*  
+*sudo cp KRNLDR.SYS myfloppy*  
+*sudo umount myfloppy*  
+*sudo losetup -d /dev/loop0*  
 
 \*note myfloppy is folder that we have created as mount point of our
-virtual floppy.
-\*LOADER.SYS will be our stage one boot loader in binary format.
-\*KRNLDR.SYS will be our stage two boot loader in binary format.
+virtual floppy.  
+\*LOADER.SYS will be our stage one boot loader in binary format.  
+\*KRNLDR.SYS will be our stage two boot loader in binary format.  
 
 ## BOOT LOADER STAGE ONE
 
@@ -279,9 +279,7 @@ is installed.
 
 #### 5) Keyboard Port Mapping
 
-**Port Read/Write Descripton**
-
-| cmd   | operation     |  discription                          |
+|  Port   | Read/Write     |  Descripton                         |
 |----|------|----------------------------|
 |0x60| Read | Read Input Buffer          |
 |0x60| Write| Write Output Buffer        |
