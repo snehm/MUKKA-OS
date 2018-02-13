@@ -1,6 +1,5 @@
 # MUKKA-OS
-Operating system implementation for x86 architecture
-
+x86 Architecture operating system implementation work for educational purpose.
 
 ## WHEN YOU PRESS POWER BUTTON?
 
@@ -27,7 +26,53 @@ line 20, install GDT, install IDT, load kernel in memory,
 switch to protected mode and transfer control to our operating system
 kernel.
 
-## TOOLS AND ENVIRONMENT SETUP
+## CURRENT STATE
+### Implemented features
++ Bootloader (512 bytes master boot record)
++ Second stage bootloader
++ Basic VGA text output
++ Kernel in C
++ Software interrupt handling
++ Hardware interrupt handling (in progress)
+
+### Future
++ Hardware abstraction layer
++ Memory management
++ Process Management
+
+## RUNNING AND TESTING OPERATING SYSTEM
+
+This is operating is currently being developed, and is not tested on real
+hadware. We can safely run our OS on bochs x86 emulator.
+
+Step 1 : Install Bochs emulator.
+         *sudo apt-get install bochs bochs-x bochs-sdl*        
+Step 2 : Download all the source code from git-hub
+Step 3 : Navigate to the MUCCA-OS folder on the terminal
+Step 4 : Execute *MAKE BUILD* on the teminal
+Step 5 : Execute *SUDO MAKE INSTALL* 
+Step 6 : Execute *sudo bochs -f bochs.txt*   
+
+## DIRECTORY STRUCTURE
+SysBoot\                               - Two stage bootloader source-code 
+ 
+      Stage1\                          - Stage1 bootstrap loader
+      Stage2\                          - Stage2 KRNLDR bootloder
+ 
+SysCore\                               - System core
+ 
+      Debug\                           - Pre-Release complete builds
+      Release\                         - Release builds
+      Include\                         - Standard Library Include directory
+ 
+      Lib\                             - Standard Library Runtime.
+      Hal\                             - Hardware Abstraction Layer.
+      Kernel\                          - Kernel Programs.
+
+## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
+Things described under this section is only for development from ground-up. 
+This section is only for reference in future, and can be skiiped without any
+loss of flow. 
 
 ### BOCHS
 
@@ -38,7 +83,7 @@ Operating system.
 
 *sudo apt-get install bochs bochs-x bochs-sdl*
 
-#### 2) Bochs configuration file (bochsrc.txt):
+#### 2) Bochs configuration file (bochs.txt):
 
 *megs: 32*
 *romimage: file="/usr/share/bochs/BIOS-bochs-latest"*  
@@ -53,7 +98,7 @@ Operating system.
 *break-point (debugger) : b &lt;memory location&gt;*  
 *continue (debugger) : c*  
 
-### Install script
+### Install script ( these commands execute during *MAKE INSTALL* )
 
 This will be used to create, mount virtual floppy and copy bootloader in
 bootsector.
@@ -183,7 +228,7 @@ CF = set if failure, cleared if success
 + Copy kernel image at 0x100000  
 + Jump to kernel  
 
-### Boot loader stage one implemetation prerequesite knowledge**
+### Boot loader stage one implemetation prerequesite knowledge
 
 #### 1) Rings of Assembly
 
@@ -368,6 +413,6 @@ end = .; \_end = .; \_\_end = .;
 *ld -m elf\_i386 -T link.ld -o KERNEL.ELF loader.o kmain.o*  
 *objcopy -O binary KERNEL.ELF KERNEL.SYS*  
 
-*\*loader.asm is kernel entry point (start lable defined here)*  
-*\*kmain.c is C kernel*  
-*\*link.ld is loader script*  
+\*loader.asm is kernel entry point (start lable defined here)  
+\*kmain.c is C kernel  
+\*link.ld is loader script 
