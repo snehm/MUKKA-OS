@@ -49,9 +49,9 @@ Step 1: Install Bochs emulator
 ```        *sudo apt-get install bochs bochs-x bochs-sdl*```  
 Step 2: Download all the source code from git-hub  
 Step 3: Navigate to the MUCCA-OS folder on the terminal  
-Step 4: Execute *MAKE BUILD* on the teminal  
-Step 5: Execute *SUDO MAKE INSTALL*   
-Step 6: Execute *sudo bochs -f bochs.txt*     
+Step 4: Execute **make build** on the teminal  
+Step 5: Execute **sudo make install**   
+Step 6: Execute **sudo bochs -f bochs.txt**     
 
 ## DIRECTORY STRUCTURE
 ```
