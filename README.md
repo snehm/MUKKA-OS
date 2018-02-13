@@ -46,7 +46,7 @@ This is operating is currently being developed, and is not tested on real
 hadware. We can safely run our OS on bochs x86 emulator.
 
 Step 1: Install Bochs emulator  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*sudo apt-get install bochs bochs-x bochs-sdl*         
+```        *sudo apt-get install bochs bochs-x bochs-sdl*```  
 Step 2: Download all the source code from git-hub  
 Step 3: Navigate to the MUCCA-OS folder on the terminal  
 Step 4: Execute *MAKE BUILD* on the teminal  
@@ -54,20 +54,22 @@ Step 5: Execute *SUDO MAKE INSTALL*
 Step 6: Execute *sudo bochs -f bochs.txt*     
 
 ## DIRECTORY STRUCTURE
-SysBoot/ ------------------------- Two stage bootloader source-code   
-_______Stage1/ ------------------- Stage1 bootstrap loader  
-_______Stage2/ ------------------- Stage2 KRNLDR bootloder   
+```
+SysBoot/                            -Two stage bootloader source-code
+       Stage1/                      - Stage1 bootstrap loader
+       Stage2/                      - Stage2 KRNLDR bootloder
   
-SysCore/ ------------------------- System core  
-_______Debug/ -------------------- Pre-Release complete builds  
-_______Release/ ------------------ Release builds  
-_______Include/ ------------------ Standard Library Include directory  
-_______Lib/ ---------------------- Standard Library Runtime  
-_______Hal/ ---------------------- Hardware Abstraction Layer  
-_______Kernel/ ------------------- Kernel Programs  
-     
-myfloppy/ ------------------------ Temporary folder, used for mounting floppy disk  
-media/ --------------------------- Folder containg media content used in README.md  
+SysCore/                            - System core
+       Debug/                       - Pre-Release complete builds
+       Release/                     - Release builds
+       Include/                     - Standard Library Include directory
+       Lib/                         - Standard Library Runtime
+       Hal/                         - Hardware Abstraction Layer
+       Kernel/                      - Kernel Programs
+
+myfloppy/                           - Temporary folder, used for mounting floppy disk
+media/                              - Folder containg media content used in README.md
+```
 
 ## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
 Things described under this section is only for development from ground-up.   
