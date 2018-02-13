@@ -73,7 +73,7 @@ media/                              - Folder containg media content used in READ
 
 ## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
 Things described under this section is only for development from ground-up.   
-This section is only for reference in future, and can be skiiped without any loss of flow.   
+This section is only for reference in future, and can be skiped without any loss of flow.   
 
 ### BOCHS
 
