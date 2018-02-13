@@ -1,26 +1,26 @@
 # MUKKA-OS
-x86 Architecture operating system implementation work for educational purpose.
+x86 Architecture operating system implementation work for an educational purpose.
 
 ## WHEN YOU PRESS POWER BUTTON?
 
 <img src="media/powerOn.png" width="689" height="585" />
 
-**POST** is a firmware software that perform diagonistic on computer
-components, for example if enough power supply is present.  
+**POST** is a firmware software that performs diagnostics on computer
+components, for example, if enough power supply is present.  
 Its responsibility includes loading BIOS at the end of physical memory,
 a jump instruction is placed at physical memory 0x0 to BIOS routine.
 
-Control is transffered to **BIOS**, whoes major responsibility is to
-load boot sector of boot drive in memory at location 0x7c00 and pass
+Control is transferred to **BIOS**, whose major responsibility is to
+load boot sector of the boot drive in memory at location 0x7c00 and pass
 control to 0x7c00
 
 **Boot Loader I** loaded at 0x7c00 by BIOS is limited to size 512
 bytes. Due to its size constraint its major task is to find and load
-second stage boot loader from boot drive to memory and transfer control
-to second stage boot loader using BIOS interrupts, we will start our
+second stage bootloader from boot drive to memory and transfer control
+to second stage bootloader using BIOS interrupts, we will start our
 operating system implementation from this stage, Boot Loader I :)
 
-**Boot Loader II** loaded at memory location 0x500 (because we choosed
+**Boot Loader II** loaded at memory location 0x500 (because we choose
 to load at this location), major responsibility is to enable Address
 line 20, install GDT, install IDT, load kernel in memory,  
 switch to protected mode and transfer control to our operating system
@@ -43,19 +43,19 @@ kernel.
 ## RUNNING AND TESTING OPERATING SYSTEM
 
 This is operating is currently being developed, and is not tested on real
-hadware. We can safely run our OS on bochs x86 emulator.
+hardware. We can safely run our OS on Bochs x86 emulator.
 
 Step 1: Install Bochs emulator  
-```        *sudo apt-get install bochs bochs-x bochs-sdl*```  
+```        sudo apt-get install bochs bochs-x bochs-sdl```  
 Step 2: Download all the source code from git-hub  
 Step 3: Navigate to the MUCCA-OS folder on the terminal  
-Step 4: Execute **make build** on the teminal  
-Step 5: Execute **sudo make install**   
-Step 6: Execute **sudo bochs -f bochs.txt**     
+Step 4: Execute **make build** on the terminal  
+Step 5: Execute **sudo make install** on the terminal   
+Step 6: Execute **sudo bochs -f bochs.txt** on the terminal     
 
 ## DIRECTORY STRUCTURE
 ```
-SysBoot/                            -Two stage bootloader source-code
+SysBoot/                            -Two-stage bootloader source-code
        Stage1/                      - Stage1 bootstrap loader
        Stage2/                      - Stage2 KRNLDR bootloder
   
@@ -68,16 +68,16 @@ SysCore/                            - System core
        Kernel/                      - Kernel Programs
 
 myfloppy/                           - Temporary folder, used for mounting floppy disk
-media/                              - Folder containg media content used in README.md
+media/                              - Folder containing media content used in README.md
 ```
 
 ## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
-Things described under this section is only for development from ground-up.   
-This section is only for reference in future, and can be skiped without any loss of flow.   
+Things described in this section is only for development from ground-up.   
+This section is only for reference in future and can be skipped without any loss of flow.   
 
 ### BOCHS
 
-An x86 architecture simulator, will be used for testing and debugging Operating system.
+An x86 architecture emulator will be used for testing and debugging Operating system.
 
 #### 1) Bochs installation : ####
 
@@ -101,7 +101,7 @@ An x86 architecture simulator, will be used for testing and debugging Operating 
 ### Install script ( these commands execute during *MAKE INSTALL* )
 
 This will be used to create, mount virtual floppy and copy bootloader in
-bootsector.
+boot sector.
 
 *sudo dd if=/dev/zero of=myfloppy.img bs=512 count=2880*  
 *sudo losetup /dev/loop0 myfloppy.img*  
@@ -112,10 +112,10 @@ bootsector.
 *sudo umount myfloppy*  
 *sudo losetup -d /dev/loop0*  
 
-\*note myfloppy is folder that we have created as mount point of our
+\*note myfloppy is the folder that we have created as mount point of our
 virtual floppy.  
 \*LOADER.SYS will be our stage one boot loader in binary format.  
-\*KRNLDR.SYS will be our stage two boot loader in binary format.  
+\*KRNLDR.SYS will be our stage two bootloader in binary format.  
 
 ## BOOT LOADER STAGE ONE
 
