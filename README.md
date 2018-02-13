@@ -54,18 +54,20 @@ Step 5: Execute *SUDO MAKE INSTALL*
 Step 6: Execute *sudo bochs -f bochs.txt*     
 
 ## DIRECTORY STRUCTURE
-SysBoot/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Two stage bootloader source-code   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage1/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Stage1 bootstrap loader  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage2/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Stage2 KRNLDR bootloder    
-SysCore/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- System core  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debug/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Pre-Release complete builds  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Release/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Release builds  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Include/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Standard Library Include directory  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lib/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Standard Library Runtime  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hal/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hardware Abstraction Layer  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kernel/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Kernel Programs    
-myfloppy/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Temporary folder, used for mounting floppy disk  
-media/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Folder containg media content used in README.md  
+SysBoot/ ------------------------- Two stage bootloader source-code   
+_______Stage1/ ------------------- Stage1 bootstrap loader  
+_______Stage2/ ------------------- Stage2 KRNLDR bootloder   
+  
+SysCore/ ------------------------- System core  
+_______Debug/ -------------------- Pre-Release complete builds  
+_______Release/ ------------------ Release builds  
+_______Include/ ------------------ Standard Library Include directory  
+_______Lib/ ---------------------- Standard Library Runtime  
+_______Hal/ ---------------------- Hardware Abstraction Layer  
+_______Kernel/ ------------------- Kernel Programs  
+     
+myfloppy/ ------------------------ Temporary folder, used for mounting floppy disk  
+media/ --------------------------- Folder containg media content used in README.md  
 
 ## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
 Things described under this section is only for development from ground-up.   
