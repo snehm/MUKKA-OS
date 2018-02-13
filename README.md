@@ -130,7 +130,7 @@ virtual floppy.
 &nbsp;&nbsp;&nbsp;&nbsp;+ load clusters from FAT table starting from save cluster at 0x500  
 + Jump to stage two  
 
-### Boot loader stage one implemetation prerequesite knowledge
+### Boot loader stage one implemetation prerequisite knowledge
 
 #### 1) Drive structure of FAT12 floppy
 
@@ -228,7 +228,7 @@ CF = set if failure, cleared if success
 + Copy kernel image at 0x100000  
 + Jump to kernel  
 
-### Boot loader stage one implemetation prerequesite knowledge
+### Boot loader stage one implemetation prerequisite knowledge
 
 #### 1) Rings of Assembly
 
