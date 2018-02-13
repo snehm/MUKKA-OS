@@ -6,7 +6,7 @@
 %ifndef __GDT_INC_sneh_INCLUDED
 %define __GDT_INC_sneh_INCLUDED
 
-bits 16                         ; we will be in 16 bit mode when loading gdt
+bits 16                             ; we will be in 16 bit mode when loading gdt
 
 ; InstallGDT()
 ;    - installing this gdt
@@ -14,7 +14,7 @@ bits 16                         ; we will be in 16 bit mode when loading gdt
 InstallGDT:
     cli 
     pusha
-    lgdt [toc]                  ; load gdt in GDTR
+    lgdt [toc]                      ; load gdt in GDTR
     sti
     popa
     ret
@@ -22,10 +22,10 @@ InstallGDT:
 ; GDT table
 gdt_data:
     dd 0
-    dd 0                        ;null descripter
+    dd 0                            ; null descripter
     
     ;gdt for code segment
-    dw 0FFFFh                   ;gdt table, refer gdt table
+    dw 0FFFFh                       ; gdt table, refer gdt table
     dw 0
     db 0
     db 10011010b
@@ -33,10 +33,10 @@ gdt_data:
     db 0
     
     ;gdt for data segment
-    dw 0FFFFh                   ;gdt table, refer gdt table
+    dw 0FFFFh                       ; gdt table, refer gdt table
     dw 0
     db 0
-    db 10010010b                ;becuase this is data segment
+    db 10010010b                    ; becuase this is data segment
     db 11001111b
     db 0
 end_of_gdt:

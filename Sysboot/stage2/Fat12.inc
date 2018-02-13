@@ -180,7 +180,7 @@ LoadFile:
 	push	ecx
 	push	bx
 	push	es
-	mov	ax, FAT_SEG		                     ;start reading from fat
+	mov	ax, FAT_SEG		                     ; start reading from fat
 	mov	es, ax
 	xor	bx, bx
 
@@ -192,7 +192,7 @@ LoadFile:
 	shr     dx, 0x0001		                  ; divide by two
 	add     cx, dx			                     ; sum for (3/2)
 
-	mov	bx, 0			                        ;location of fat in memory
+	mov	bx, 0			                        ; location of fat in memory
 	add	bx, cx
 	mov	dx, WORD [es:bx]
 	test	ax, 0x0001		                     ; test for odd or even cluster

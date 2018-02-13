@@ -11,6 +11,7 @@ clean:
 	cd SysCore/Lib/ && make clean
 	cd SysCore/"Hal"/ && make clean
 	cd SysCore/Kernel/ && make clean
+	sudo rm myfloppy.img
 	
 install:
 	sudo dd if=/dev/zero of=myfloppy.img bs=512 count=2880

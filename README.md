@@ -45,38 +45,36 @@ kernel.
 This is operating is currently being developed, and is not tested on real
 hadware. We can safely run our OS on bochs x86 emulator.
 
-Step 1 : Install Bochs emulator.
-         *sudo apt-get install bochs bochs-x bochs-sdl*        
-Step 2 : Download all the source code from git-hub
-Step 3 : Navigate to the MUCCA-OS folder on the terminal
-Step 4 : Execute *MAKE BUILD* on the teminal
-Step 5 : Execute *SUDO MAKE INSTALL* 
-Step 6 : Execute *sudo bochs -f bochs.txt*   
+Step 1 : Install Bochs emulator  
+         *sudo apt-get install bochs bochs-x bochs-sdl*         
+Step 2 : Download all the source code from git-hub  
+Step 3 : Navigate to the MUCCA-OS folder on the terminal  
+Step 4 : Execute *MAKE BUILD* on the teminal  
+Step 5 : Execute *SUDO MAKE INSTALL*   
+Step 6 : Execute *sudo bochs -f bochs.txt*     
 
 ## DIRECTORY STRUCTURE
-SysBoot\                               - Two stage bootloader source-code 
- 
-      Stage1\                          - Stage1 bootstrap loader
-      Stage2\                          - Stage2 KRNLDR bootloder
- 
-SysCore\                               - System core
- 
-      Debug\                           - Pre-Release complete builds
-      Release\                         - Release builds
-      Include\                         - Standard Library Include directory
- 
-      Lib\                             - Standard Library Runtime.
-      Hal\                             - Hardware Abstraction Layer.
-      Kernel\                          - Kernel Programs.
+SysBoot/                               - Two stage bootloader source-code   
+&nbsp;&nbsp;&nbsp;&nbsp;Stage1/                          - Stage1 bootstrap loader  
+&nbsp;&nbsp;&nbsp;&nbsp;Stage2/                          - Stage2 KRNLDR bootloder    
+SysCore/                               - System core  
+&nbsp;&nbsp;&nbsp;&nbsp;Debug/                           - Pre-Release complete builds  
+&nbsp;&nbsp;&nbsp;&nbsp;Release/                         - Release builds    
+&nbsp;&nbsp;&nbsp;&nbsp;Include/                         - Standard Library Include directory
+&nbsp;&nbsp;&nbsp;&nbsp;Lib/                             - Standard Library Runtime.
+&nbsp;&nbsp;&nbsp;&nbsp;Hal/                             - Hardware Abstraction Layer.
+&nbsp;&nbsp;&nbsp;&nbsp;Kernel/                          - Kernel Programs.  
+myfloppy/                              - Temporary folder, used for mounting floppy disk  
+media/                                 - Folder containg media content used in README.md           
 
 ## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
-Things described under this section is only for development from ground-up. 
-This section is only for reference in future, and can be skiiped without any
-loss of flow. 
+Things described under this section is only for development from ground-up.   
+This section is only for reference in future, and can be skiiped without any  
+loss of flow.   
 
 ### BOCHS
 
-An x86 architecture simulator, will be used for testing and debugging
+An x86 architecture simulator, will be used for testing and debugging  
 Operating system.
 
 #### 1) Bochs installation : ####
