@@ -68,7 +68,6 @@ SysCore/                            - System core
        Kernel/                      - Kernel Programs
 
 myfloppy/                           - Temporary folder, used for mounting floppy disk
-media/                              - Folder containing media content used in README.md
 ```
 
 ## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
