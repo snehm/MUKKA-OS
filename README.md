@@ -67,7 +67,7 @@ SysCore/                            - System core
        Hal/                         - Hardware Abstraction Layer
        Kernel/                      - Kernel Programs
 
-myfloppy/                           - Temporary folder, used for mounting floppy disk
+media/                              - contains media content used in README.md
 ```
 
 ## TOOLS AND ENVIRONMENT SETUP FOR GROUND-UP DEVELOPMENT
