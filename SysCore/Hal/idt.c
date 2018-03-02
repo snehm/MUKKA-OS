@@ -5,6 +5,7 @@
 #include <_null.h>
 #include <stdint.h>
 #include <string.h>
+#include <hal.h>
 
 //to print messege
 #include "../Kernel/kprint.h"
@@ -28,19 +29,20 @@ struct idtr _idtr;
 
 //installs out idt in idtr
 static void idt_install(){
-   asm("lidt [%0]" :: "r" (&_idtr));
+   asm("lidt (%0)" : : "r" (&_idtr));
 } 
 
 //default handler for our interrupts
 static void default_handler() {
+   
    ksetColor(RED);
    kprintString("\n[x86]: unhandled exception caught\n\0");
    
-   for(;;);       // we need to fix this!!
+   while(1);
 }
 
 //get interrupt descriptor for interrupt i
-struct idt_descriptor* get_idt(uint32_t i) {
+struct idt_descriptor* idt_get(uint32_t i) {
    if(i >= MAX_INTERRUPTS )
       return NULL;
    

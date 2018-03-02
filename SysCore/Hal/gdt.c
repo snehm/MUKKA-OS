@@ -27,7 +27,7 @@ static struct gdtr _gdtr;
 
 //install gdt in processor
 static void install_gdt(){
-   asm ("lgdt [%0]" :: "r" (&_gdtr));
+   asm ("lgdt (%0)" : : "r" (&_gdtr));
 }
 
 void gdt_set_descriptor(uint32_t i, uint64_t base, uint64_t limit, uint8_t flag1, uint8_t flag2) {

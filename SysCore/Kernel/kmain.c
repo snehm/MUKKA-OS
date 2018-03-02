@@ -4,7 +4,7 @@
 #include <string.h>
 #include <hal.h>
 
-void kmain(){
+int kmain(){
     kclearScreen(1);
     
     char *s = "Welcome to MUKKA OS\n\0";
@@ -15,8 +15,12 @@ void kmain(){
     kgotoXY(0, 3);
     kprintString("Initializing HAL ...\n\0");
     hal_initialize();
-   
+
+    //enable hardware interrupt
+    enable();
+
+    for(;;);
+
     //generate an interrupt
-    generate_interrupt(0);
-      
+    //generate_interrupt(0);
 }

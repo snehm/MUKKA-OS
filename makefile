@@ -25,5 +25,10 @@ install:
 	sudo umount myfloppy
 	sudo rm -r myfloppy 
 	sudo losetup -d /dev/loop0
+
+resolve:
+	sudo losetup -d /dev/loop0
+	sudo umount myfloppy
+	sudo rm -r myfloppy
 	
 	
